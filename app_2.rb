@@ -4,8 +4,23 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
+puts "
 
-puts "Bienvenue sur 'ILS VEULENT TOUS MA POO' ! \n Le but du jeu est d'être le dernier survivant !"
+    ██   ██ ██ ██      ██          ████████ ██   ██ ███████     ██████   █████   ██████  ██       ██████  ███████ 
+    ██  ██  ██ ██      ██             ██    ██   ██ ██          ██   ██ ██   ██ ██    ██ ██      ██    ██ ██      
+    █████   ██ ██      ██             ██    ███████ █████       ██████  ███████ ██    ██ ██      ██    ██ ███████ 
+    ██  ██  ██ ██      ██             ██    ██   ██ ██          ██      ██   ██ ██    ██ ██      ██    ██      ██ 
+    ██   ██ ██ ███████ ███████        ██    ██   ██ ███████     ██      ██   ██  ██████  ███████  ██████  ███████ 
+                                                                                                              
+                                                                                                              
+"
+puts "
+                           ------------------------------------------------
+                           |Bienvenue sur 'ILS VEULENT TOUS MA POO' !      |
+                           |Le but du jeu est d'être le dernier survivant !|
+                           -------------------------------------------------
+"
+#puts "Bienvenue sur 'ILS VEULENT TOUS MA POO' ! \n Le but du jeu est d'être le dernier survivant !"
 
 puts "What's your name ?"
 name = gets.chomp
@@ -33,14 +48,14 @@ while my_player.life_points > 0 && (paolo.life_points > 0 || paula.life_points >
 
 if paolo.life_points > 0
     puts "#{paolo.show_state}"
-    puts "Tape 3 pour attaquer #{paolo.name} "
+    puts "Type 3 to attack #{paolo.name} "
     else
         puts "Bye bye #{paolo.name}"
 end
 
 if paula.life_points > 0 
     puts "#{paula.show_state}"
-    puts "Tape 4 pour attaquer #{paula.name} "
+    puts "Type 4 to attack #{paula.name} "
     else
         puts "Bye bye #{paula.name}"
 end

@@ -6,20 +6,31 @@ class Player
         @life_points = 10
     end
 
-
-    def self.show_state
-        return @life_points
+# Afficher l'état de l'objet Player sur laquelle elle est exécutée : "XXXX a YYY points de vie".
+    def show_state
+        puts "#{@name} has #{@life_points} left !"
     end
 
-    def gets_damage
-        @damage = damage
-        @life_points = @life_points - @damage
+# Le joueur stocké dans l'objet player1 subit 5 pts de dommage en faisant un player1.gets_damage(5).
+    def gets_damage(damage_pts)
+        @damage_pts = damage_pts
+        @life_points = @life_points - @damage_pts
         if @life_points <= 0
-        return @life_points
+            puts "#{@name} is dead !"
+        @life_points = 0
         end
     end
 
+# Pour que le player1 attaque le player2, on aura juste à taper player1.attacks(player2).
+    def attacks(attacked)
+        puts "Player #{self.name} is attacking player #{attacked.name} !"
+        attack = compute_damage
+        attacked.gets_damage(attack)
+        puts "#{attacked.name} lost #{attack} life points !"
+    end
 
-
+    def compute_damage
+        return rand(1..6)
+    end
 
 end

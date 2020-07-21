@@ -7,41 +7,41 @@ require_relative 'lib/player'
 
 player1 = Player.new("Josie")
 player2 = Player.new("José")
+player3 = HumanPlayer.new("Orane")
 
-def intro(player1, player2)
-    player1.show_state
-    player2.show_state
+def intro(a, b)
+    a.show_state
+    b.show_state
 end
 
 def start
     puts "Let's play"
 end
 
-def fight(player1, player2)
-    while player1.life_points > 0 || player2.life_points > 0
-    player1.attacks(player2)
-    puts "\n"
-    if player2.life_points <= 0 
+def fight(a, b)
+    while a.life_points > 0 && b.life_points > 0
+    a.attacks(b)
+    if b.life_points <= 0 
         break
     end
-    player2.attacks(player1)
+    b.attacks(a)
     end
 end
 
 
 
-def playin(player1, player2)
+def playin(a, b)
 
-        intro(player1, player2) 
+        intro(a, b) 
         start
-        fight(player1, player2)
+        fight(a, b)
 
 end
 
 p playin(player1, player2)
 
 
-
+binding.pry
 
 
 

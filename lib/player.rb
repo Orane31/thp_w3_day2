@@ -35,3 +35,67 @@ class Player
     end
 
 end
+
+# Nouvelle classe = HumanPlayer avec 100 pts de vie et une arme = weapon
+
+class HumanPlayer < Player
+    attr_accessor :weapon_level
+
+    def initialize(name)
+        @life_points = 100
+        @weapon_level = 1
+        super(name)
+    end
+
+    def show_state
+        return "#{@name} has #{@life_points} left, and their weapon is of level #{@weapon_level} !"
+    end
+
+    def compute_damage
+        return rand(1..6) * @weapon_level
+    end
+# mèthode search weapon : si l'arme est meilleure, on la garde
+
+    def search_weapon
+        @better_weapon = rand(1..6)
+        puts "You have found a weapon of level #{@better_weapon}"
+        
+        if @better_weapon > @weapon_level
+            @weapon_level = @better_weapon
+            puts "Yuhuuuuu ! You now have a level #{@weapon_level} weapon !"
+        else
+            puts "It's not better than your current weapon... No use in keeping it."
+        end
+    end
+
+# méthode search life pack : pour regagner des points de vie 
+
+    def search_health_pack
+        @pts_found = rand(1..6)
+
+        case @pts_found
+
+        when 1
+            puts "Couldn't find anything"
+
+        when 2..5
+            @points_total = @life_points + 50
+            if @points_total > 100
+                @life_points = 100
+            else
+                @life_points = @points_total
+            end
+            puts "Yeeeeeeah you found a pack of +50 life points !"
+
+        when 6
+            @points_total = @life_points + 80
+            if @points_total > 100
+                @life_points = 100
+            else
+                @life_points = @points_total
+            end
+            puts "OMG you found a pack of +80 life points !"   
+        end
+    end
+
+end

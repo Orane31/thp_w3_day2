@@ -41,7 +41,7 @@ end
 p playin(player1, player2)
 
 
-binding.pry
+
 
 
 

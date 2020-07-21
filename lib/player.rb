@@ -8,7 +8,7 @@ class Player
 
 # Afficher l'état de l'objet Player sur laquelle elle est exécutée : "XXXX a YYY points de vie".
     def show_state
-        return "#{@name} has #{@life_points} left !"
+        puts "Here is #{@name} with #{@life_points} life points !"
     end
 
 # Le joueur stocké dans l'objet player1 subit 5 pts de dommage en faisant un player1.gets_damage(5).
@@ -31,7 +31,7 @@ class Player
     end
 
     def compute_damage
-        return rand(1..6)
+        rand(1..6)
     end
 
 end
@@ -42,17 +42,18 @@ class HumanPlayer < Player
     attr_accessor :weapon_level
 
     def initialize(name)
+        @name = name
         @life_points = 100
         @weapon_level = 1
-        super(name)
+
     end
 
     def show_state
-        return "#{@name} has #{@life_points} left, and their weapon is of level #{@weapon_level} !"
+        return "You have #{@life_points} life points, and your weapon is level #{@weapon_level} !"
     end
 
     def compute_damage
-        return rand(1..6) * @weapon_level
+        rand(1..6) * @weapon_level
     end
 # mèthode search weapon : si l'arme est meilleure, on la garde
 
@@ -64,7 +65,7 @@ class HumanPlayer < Player
             @weapon_level = @better_weapon
             puts "Yuhuuuuu ! You now have a level #{@weapon_level} weapon !"
         else
-            puts "It's not better than your current weapon... No use in keeping it."
+            return "It's not better than your current weapon... No use in keeping it."
         end
     end
 
@@ -94,7 +95,7 @@ class HumanPlayer < Player
             else
                 @life_points = @points_total
             end
-            puts "OMG you found a pack of +80 life points !"   
+            return "OMG you found a pack of +80 life points !"   
         end
     end
 

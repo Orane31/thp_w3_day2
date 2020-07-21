@@ -26,14 +26,25 @@ ennemies << paula
 while my_player.life_points > 0 && (paolo.life_points > 0 || paula.life_points > 0)
     
     puts my_player.show_state
-    puts "What do you want to do ?
+    puts "What do you want to do ?"
+    puts "1 - If you want to search for a better weapon,"
+    puts "2 - If you want to try to regain some life points,"
+    puts "\nIf you want to attack another player :"
 
-    1 - If you want to search for a better weapon,
-    2 - If you want to try to regain some life points,
-    
-    If you want to attack another player :
-    3 - #{paolo.show_state}
-    4 - #{paula.show_state}"
+if paolo.life_points > 0
+    puts "#{paolo.show_state}"
+    puts "Tape 3 pour attaquer #{paolo.name} "
+    else
+        puts "Bye bye #{paolo.name}"
+end
+
+if paula.life_points > 0 
+    puts "#{paula.show_state}"
+    puts "Tape 4 pour attaquer #{paula.name} "
+    else
+        puts "Bye bye #{paula.name}"
+end
+
 
 # Le choix est transformé en action pour le Human Player
 

@@ -8,7 +8,7 @@ class Player
 
 # Afficher l'état de l'objet Player sur laquelle elle est exécutée : "XXXX a YYY points de vie".
     def show_state
-        puts "Here is #{@name} with #{@life_points} life points !"
+        print "Here is #{@name} with #{@life_points} life points !"
     end
 
 # Le joueur stocké dans l'objet player1 subit 5 pts de dommage en faisant un player1.gets_damage(5).
